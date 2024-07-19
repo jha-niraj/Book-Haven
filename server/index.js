@@ -16,7 +16,7 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:5173"
+    origin: "https://book-haven-front-end.vercel.app"
 }));
 app.use(bodyParser.json());
 app.use(cookieParser());
