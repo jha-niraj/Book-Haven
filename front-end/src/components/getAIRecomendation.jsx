@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { googleApiKey } from "../url";
 
-const API_KEY = "AIzaSyB9Cf-RZfT_6CPKX1pQ_lPB7S8mY5HnBWA";
+const API_KEY = googleApiKey;
 const genAI = new GoogleGenerativeAI(API_KEY);
 
 async function getRecommendation(prompt) {
