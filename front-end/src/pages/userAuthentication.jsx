@@ -4,6 +4,7 @@ import PageAnimation from "./PageAnimation";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useUser } from "../context/UserContext";
+import { base_url } from "../url";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -22,7 +23,7 @@ const UserAuthentication = ({ endpoint }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/" + endpoint, {
+            const response = await axios.post(base_url + endpoint, {
                 fullname,
                 email,
                 password
