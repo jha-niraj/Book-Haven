@@ -1,7 +1,6 @@
 // Installing dependecies:
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const PORT = process.env.PORT;
@@ -18,7 +17,7 @@ app.use(cors({
     credentials: true,
     origin: "https://book-haven-front-end.vercel.app"
 }));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cookieParser());
 
 connectDB();
