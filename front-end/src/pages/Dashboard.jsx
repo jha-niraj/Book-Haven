@@ -2,7 +2,6 @@
 import { useEffect, useState, CSSProperties } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import { Toaster, toast } from "react-hot-toast"
 import ScaleLoader from "react-spinners/ScaleLoader";
 import { searchBooks } from "../api/BookApi";
 
@@ -64,7 +63,6 @@ const Dashboard = () => {
 
     return (
         <div className="flex flex-col min-h-screen w-full">
-            <Toaster />
             <Navbar className="sticky top-0 z-10" />
             <PageAnimation className="flex-grow flex flex-col overflow-hidden">
                 <section className="flex-shrink-0 w-full p-4 mt-20 bg-gray-100">
