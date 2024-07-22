@@ -23,7 +23,7 @@ const UserAuthentication = ({ endpoint }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("/api/v1/" + endpoint, {
+            const response = await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/" + endpoint, {
                 fullname,
                 email,
                 password
