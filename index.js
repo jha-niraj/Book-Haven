@@ -13,7 +13,18 @@ const connectDB = require("./config/db");
 // Initializing an Express instance:
 const app = express();
 
-app.use(cors());
+const allowedOrigins = ['https://book-haven-n2cjk7cns-jhanirajs-projects.vercel.app'];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 app.use(express.json());
 app.use(cookieParser());
 
