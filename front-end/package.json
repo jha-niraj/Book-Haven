@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "proxy": "https://book-haven-1-i6ra.onrender.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

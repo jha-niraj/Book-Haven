@@ -27,7 +27,7 @@ The Book Store API is a RESTful API that allows users to search for books, add b
    `npm start`
    
 5. Open the website in your browser:
-   `http://localhost:3000`
+   ``
 
 ## Contact
 - Email: jhaniraj45@gmail.com

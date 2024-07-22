@@ -11,7 +11,7 @@ const UserNavigation = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post("http://localhost:3000/api/v1/logout", {}, {
+            await axios.post("/api/v1/logout", {}, {
                 withCredentials: true
             });
             window.dispatchEvent(new Event('tokenChange'));
