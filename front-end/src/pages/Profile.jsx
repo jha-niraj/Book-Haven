@@ -23,7 +23,7 @@ const Profile = () => {
 
     useEffect(() => {
         const fetchUserBooks = async () => {
-            const response = await axios.get("/api/v1/getbooks", {
+            const response = await axios.get("https://book-haven-1-i6ra.onrender.com/api/v1/getbooks", {
                 withCredentials: true
             })
             setUserBooks(response.data.books)
@@ -33,7 +33,7 @@ const Profile = () => {
 
     const handleDeleteBook = async (id) => {
         try {
-            const response = await axios.post("/api/v1/deleteuserbooks", {
+            const response = await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/deleteuserbooks", {
                 bookId: id
             }, {
                 withCredentials: true
@@ -48,7 +48,7 @@ const Profile = () => {
     const handlePasswordUpdate = async(e) => {
         e.preventDefault();
         try {
-            const response = await axios.put("/api/v1/updatepassword", {
+            const response = await axios.put("https://book-haven-1-i6ra.onrender.com/api/v1/updatepassword", {
                 newPassword,
                 oldPassword
             }, {
@@ -132,7 +132,7 @@ const UserBookCard = ({ id, onClick }) => {
 
     useEffect(() => {
         const fetchBookDetials = async () => {
-            const response = await axios.post("/api/v1/getbookdetails", {
+            const response = await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/getbookdetails", {
                 bookId: id
             }, {
                 withCredentials: true

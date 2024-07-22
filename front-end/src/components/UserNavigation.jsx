@@ -11,7 +11,7 @@ const UserNavigation = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post("/api/v1/logout", {}, {
+            await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/logout", {}, {
                 withCredentials: true
             });
             window.dispatchEvent(new Event('tokenChange'));
