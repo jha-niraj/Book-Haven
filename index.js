@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: "*"
+    origin: "https://book-haven-n2cjk7cns-jhanirajs-projects.vercel.app"
 }));
 app.use(express.json());
 app.use(cookieParser());
