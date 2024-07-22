@@ -88,7 +88,11 @@ router.post("/signin", async (req, res) => {
                 } else {
                     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET);
                     res.cookie("auth_token", token, {
-                        maxAge: 24 * 60 * 60 * 100
+                        maxAge: 24 * 60 * 60 * 1000,  // 24 hours
+                        domain: 'book-haven-1-i6ra.onrender.com',
+                        path: '/',
+                        secure: true,  // Use true if you're using HTTPS
+                        sameSite: 'Lax'
                     })
                     res.status(200).json({
                         msg: 'User Authentication Successfull',
