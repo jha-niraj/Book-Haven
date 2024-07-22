@@ -13,10 +13,7 @@ const connectDB = require("./config/db");
 // Initializing an Express instance:
 const app = express();
 
-app.use(cors({
-    credentials: true,
-    origin: "https://book-haven-n2cjk7cns-jhanirajs-projects.vercel.app"
-}));
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
