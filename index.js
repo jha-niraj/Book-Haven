@@ -13,7 +13,7 @@ const connectDB = require("./config/db");
 // Initializing an Express instance:
 const app = express();
 
-const allowedOrigins = ['https://book-haven-ebon.vercel.app', 'http://localhost:5173'];
+const allowedOrigins = ['https://book-haven-zeta.vercel.app', 'http://localhost:5173'];
 
 app.use(cors({
     origin: function (origin, callback) {
