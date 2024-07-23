@@ -92,7 +92,7 @@ router.post("/signin", async (req, res) => {
                         domain: 'book-haven-1-i6ra.onrender.com',
                         path: '/',
                         secure: true,  // Use true if you're using HTTPS
-                        sameSite: 'Lax'
+                        sameSite: 'None'
                     })
                     res.status(200).json({
                         msg: 'User Authentication Successfull',
@@ -144,9 +144,9 @@ router.get("/searchusers", userMiddleware, async(req, res) => {
 router.post("/logout", userMiddleware, (req, res) => {
     res.clearCookie("auth_token");
     res.cookie('auth_token', 'logged_out', {
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day from now
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
         httpOnly: true,
-        secure: true, // Use in production with HTTPS
+        secure: true,
         sameSite: 'strict'
     });
     return res.status(200).json({
