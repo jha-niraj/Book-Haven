@@ -31,7 +31,7 @@ const Card = ({ title, edition, publishYear, onClick, route }) => {
             }
         } catch(err) {
             console.log("Error" + err);
-            toast.error("Failed to add Book, try agian!!!")
+            toast.error("Failed to add Book, please try agian!!!")
         } finally {
             setIsAdding(false);
         }
