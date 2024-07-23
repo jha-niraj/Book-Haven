@@ -7,14 +7,14 @@ import { useEffect } from "react";
 
 const UserNavigation = () => {
     const navigate = useNavigate();
-    const { user } = useUser();
+    const { user, logout } = useUser();
 
     const handleLogout = async () => {
         try {
             await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/logout", {}, {
                 withCredentials: true
             });
-            window.dispatchEvent(new Event('tokenChange'));
+            logout();
         } catch(err) {
             console.log("Error: " + err);
             toast.error("Failed to LogOut!!!");

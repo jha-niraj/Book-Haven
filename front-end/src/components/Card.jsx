@@ -18,7 +18,7 @@ const Card = ({ title, edition, publishYear, onClick, route }) => {
         }
         setIsAdding(true);
         try {
-            const response = await axios.post("/api/v1/addbook", {
+            const response = await axios.post("https://book-haven-1-i6ra.onrender.com/api/v1/addbook", {
                 title,
                 edition,
                 publish_year: publishYear

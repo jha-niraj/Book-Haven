@@ -5,13 +5,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PageAnimation from "../pages/PageAnimation";
 import getRecommendation from "../components/getAIRecomendation";
+import { useUser } from "../context/UserContext";
 
 const EntryPage = () => {
     const navigate = useNavigate();
     const [recommendation, setRecommendation] = useState([]);
-    console.log(recommendation);
     const [mood, setMood] = useState("");
     const [loading, setLoading] = useState(false);
+    const user = useUser();
+
+    if(!user) {
+        navigate("/signin");
+    }
 
     const navigateToAuthentication = () => {
         navigate("/signin");
@@ -30,6 +35,8 @@ const EntryPage = () => {
             setLoading(false);
         }
     };
+
+    console.log("Entry Page");
 
     return (
         <PageAnimation>

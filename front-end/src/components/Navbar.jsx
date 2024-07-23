@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import Cookies from "js-cookie";
 
 import { useUser } from "../context/UserContext";
 import UserNavigation from "./UserNavigation";
@@ -12,38 +13,9 @@ const Navbar = () => {
     const location = useLocation();
 
     const { user, login, logout } = useUser();
+    console.log(user);
     const currentRoute = location.pathname.split('/').pop();
     const [userNavigationPannel, setUserNavigationPannel] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const getCookie = (name) => {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
-    const checkToken = () => {
-        const token = getCookie('auth_token');
-        return token !== null && token !== 'logged_out';
-    }
-    useEffect(() => {
-        const checkLoginStatus = () => {
-            setIsLoggedIn(checkToken());
-        };
-        checkLoginStatus();
-        const handleTokenChange = () => {
-            checkLoginStatus();
-            if (!checkToken()) {
-                toast.success("Logged Out")
-                setTimeout(() => {
-                    navigate("/signin");
-                }, 1000);
-            }
-        };
-        window.addEventListener('tokenChange', handleTokenChange);
-
-        return () => window.removeEventListener('tokenChange', handleTokenChange);
-    }, []);
 
     const handleBlur = () => {
         setTimeout(() => {
@@ -61,7 +33,7 @@ const Navbar = () => {
                 <div className="flex justify-between items-center w-full">
                     <h1 className="text-2xl font-serif font-bold cursor-pointer" onClick={() => navigate("/")}>BookHaven</h1>
                     {
-                        isLoggedIn ?
+                        user ?
                             <div className="flex items-center justify-center gap-2">
                                 <Link to="/dashboard/profile">
                                     <button className="w-10 h-10 flex items-center justify-center text-center relative bg-gray-200 rounded-full hover:bg-gray-300">

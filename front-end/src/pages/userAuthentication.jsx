@@ -33,11 +33,9 @@ const UserAuthentication = ({ endpoint }) => {
             toast.success(response.data.msg);
             setTimeout(() => {
                 if (endpoint == "signup") {
-                    window.dispatchEvent(new Event('tokenChange'));
                     login(response.data);
                     navigate("/")
                 } else {
-                    window.dispatchEvent(new Event('tokenChange'));
                     login(response.data);
                     navigate("/");
                 }
