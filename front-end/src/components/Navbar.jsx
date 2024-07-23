@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaBell } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
-import Cookies from "js-cookie";
 
 import { useUser } from "../context/UserContext";
 import UserNavigation from "./UserNavigation";
